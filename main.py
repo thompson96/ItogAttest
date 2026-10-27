@@ -15,3 +15,10 @@ cryptocurrencies = {
     'figure-heloc': 'Figure Heloc',
     'staked-ether': 'Lido Staked Ether',
 }
+
+
+root = Tk()
+root.title('Курс криптовалют к USD')
+root.geometry('360x180')
+
+root.mainloop()
