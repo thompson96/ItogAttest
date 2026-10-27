@@ -2,7 +2,13 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox as mb
 import requests
+import os
+from dotenv import load_dotenv
 
+url = 'https://api.coingecko.com/api/v3/simple/price'
+
+load_dotenv()
+api_key = os.getenv('COINGECKO_API_KEY')
 
 cryptocurrencies = {
     'bitcoin': 'Биткоин',
