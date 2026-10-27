@@ -30,7 +30,19 @@ def update_crypto_label(event):
 
 
 def get_crypto_rate():
-    pass
+    crypto_id = crypto_combobox.get()
+    params = {
+        'ids': crypto_id,
+        'vs_currencies': 'usd'
+    }
+    headers = {
+        'x-cg-demo-api-key': api_key
+    }
+    response = requests.get(url, params=params, headers=headers)
+    response.raise_for_status()
+    data = response.json()
+    rate = data[crypto_id]['usd']
+    print(rate)
 
 
 root = Tk()
