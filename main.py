@@ -17,6 +17,12 @@ cryptocurrencies = {
 }
 
 
+def update_crypto_label(event):
+    code = crypto_combobox.get()
+    name = cryptocurrencies[code]
+    crypto_label.config(text=name)
+
+
 root = Tk()
 root.title('Курс криптовалют к USD')
 root.geometry('360x180')
@@ -29,5 +35,9 @@ crypto_combobox = ttk.Combobox(
 )
 crypto_combobox.current(0)
 crypto_combobox.pack(pady=5)
+crypto_combobox.bind('<<ComboboxSelected>>', update_crypto_label)
+
+crypto_label = ttk.Label(root, text=cryptocurrencies['bitcoin'])
+crypto_label.pack()
 
 root.mainloop()
