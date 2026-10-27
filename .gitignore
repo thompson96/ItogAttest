@@ -1,0 +1,6 @@
+.venv/
+.idea/
+__pycache__/
+.env
+hs_err_pid*.log
+replay_pid*.log
