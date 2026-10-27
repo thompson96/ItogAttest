@@ -23,6 +23,10 @@ def update_crypto_label(event):
     crypto_label.config(text=name)
 
 
+def get_crypto_rate():
+    pass
+
+
 root = Tk()
 root.title('Курс криптовалют к USD')
 root.geometry('360x180')
@@ -39,5 +43,11 @@ crypto_combobox.bind('<<ComboboxSelected>>', update_crypto_label)
 
 crypto_label = ttk.Label(root, text=cryptocurrencies['bitcoin'])
 crypto_label.pack()
+
+Button(
+    root,
+    text='Получить курс к USD',
+    command=get_crypto_rate
+).pack(pady=10)
 
 root.mainloop()
