@@ -30,22 +30,25 @@ def update_crypto_label(event):
 
 
 def get_crypto_rate():
-    crypto_id = crypto_combobox.get()
-    params = {
-        'ids': crypto_id,
-        'vs_currencies': 'usd'
-    }
-    headers = {
-        'x-cg-demo-api-key': api_key
-    }
-    response = requests.get(url, params=params, headers=headers)
-    response.raise_for_status()
-    data = response.json()
-    rate = data[crypto_id]['usd']
-    mb.showinfo(
-        'Курс криптовалюты',
-        f'1 {cryptocurrencies[crypto_id]} = {rate:.2f} USD'
-    )
+    try:
+        crypto_id = crypto_combobox.get()
+        params = {
+            'ids': crypto_id,
+            'vs_currencies': 'usd'
+        }
+        headers = {
+            'x-cg-demo-api-key': api_key
+        }
+        response = requests.get(url, params=params, headers=headers)
+        response.raise_for_status()
+        data = response.json()
+        rate = data[crypto_id]['usd']
+        mb.showinfo(
+            'Курс криптовалюты',
+            f'1 {cryptocurrencies[crypto_id]} = {rate:.2f} USD'
+        )
+    except Exception as e:
+        mb.showerror('Ошибка', e)
 
 
 root = Tk()
