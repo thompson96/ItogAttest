@@ -42,7 +42,10 @@ def get_crypto_rate():
     response.raise_for_status()
     data = response.json()
     rate = data[crypto_id]['usd']
-    print(rate)
+    mb.showinfo(
+        'Курс криптовалюты',
+        f'1 {cryptocurrencies[crypto_id]} = {rate:.2f} USD'
+    )
 
 
 root = Tk()
